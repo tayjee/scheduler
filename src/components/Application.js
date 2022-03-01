@@ -52,7 +52,7 @@ export default function Application(props) {
     appointments: {}
   });
 
-  const setDay = day => setState({ ...state, day });
+  const setDay = (day) => setState({ ...state, day });
   const setDays = (days) => {
     setState(prev => ({ ...prev, days }));
 }
