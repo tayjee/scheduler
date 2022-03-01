@@ -52,6 +52,8 @@ export default function Application(props) {
     appointments: {}
   });
 
+  const dailyAppointments = [];
+
   const setDay = (day) => setState({ ...state, day });
   const setDays = (days) => {
     setState(prev => ({ ...prev, days }));
@@ -88,7 +90,7 @@ onChange={setDay}
 />
       </section>
       <section className="schedule">
-        {appointments.map((apt) => {
+        {dailyAppointments.map((apt) => {
       return <Appointment key={apt.id} {...apt} />
         })}
         <Appointment key="last" time="5pm" />
