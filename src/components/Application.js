@@ -56,7 +56,7 @@ export default function Application(props) {
     .catch((err) => {
       console.log(err);
     });
-  }, [days]);
+  }, []);
 
   return (
     <main className="layout">
