@@ -3,7 +3,7 @@ import axios from "axios";
 import DayList from "./DayList";
 import Appointment from "components/Appointment";
 import "components/Application.scss";
-import { getAppointmentsForDay } from "helpers/selectors";
+import { getAppointmentsForDay, getInterview } from "helpers/selectors";
 
 export default function Application(props) {
 
@@ -100,7 +100,15 @@ onChange={setDay}
       </section>
       <section className="schedule">
         {dailyAppointments.map((apt) => {
-      return <Appointment key={apt.id} {...apt} />
+          const interview = getInterview(state, apt.interview);
+      return (
+      <Appointment 
+      key={apt.id}
+      id={apt.id}
+      time={apt.time}
+      interview={interview}
+      />
+      );
         })}
         <Appointment key="last" time="5pm" />
       </section>
