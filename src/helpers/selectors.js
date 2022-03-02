@@ -13,8 +13,10 @@ export function getInterview(state, interview) {
   if(!interview) {
     return null;
   }
+  const {student, interviewer } = interview;
   
-  interview.interviewer = state.interviewers[interview.interviewer];
-  return interview;
-
+  return {
+    student,
+    interviewer: state.interviewers[interviewer],
+  }
 }
