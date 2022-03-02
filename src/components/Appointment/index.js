@@ -27,9 +27,11 @@ export default function Appointment(props) {
       student: name,
       interviewer,
     };
+    if(interviewer !== null) {
     transition(SAVE);
     props.bookInterview(props.id, interview)
     .then(() => transition(SHOW));
+    }
   }
 
   function cancel() {
