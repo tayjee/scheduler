@@ -1,9 +1,13 @@
 import React from "react";
 import "components/Appointment/styles.scss";
-
 import Header from "./Header";
 import Show from "./Show";
 import Empty from "./Empty";
+import Confirm from "./Confirm";
+import Error from "./Error";
+import Status from "./Status";
+import Form from "./Form";
+
 
 export default function Appointment(props) {
   return (
