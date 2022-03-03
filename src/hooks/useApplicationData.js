@@ -10,6 +10,8 @@ const useApplicationData = () => {
     interviewers: {}
   });
 
+  const setDay = (day) => setState({ ...state, day });
+
   function updateSpots(appointmentID, cancelInterview) {
     const givenDay = state.days.filter(day => day.appointments.includes(appointmentID))[0];
     let numberOfSpots = givenDay.spots;
@@ -30,40 +32,36 @@ const useApplicationData = () => {
     return spotCount;
   }
   
-  const setDay = (day) => setState({ ...state, day });
-
-      function bookInterview(id, interview) {
-        const days = updateSpots(id, false);
-        const appointment = {
-          ...state.appointments[id],
-          interview: { ...interview }
+  function bookInterview(id, interview) {
+    const days = updateSpots(id, false);
+    const appointment = {
+        ...state.appointments[id],
+        interview: { ...interview }
         };
-        const appointments = {
+      const appointments = {
           ...state.appointments,
           [id]: appointment
-        };
+          };
         setState({
           ...state,
           appointments
-        });
-        return axios
-          .put(`/api/appointments/${id}`, { interview })
-          .then(() => {
+          });
+          return axios
+            .put(`/api/appointments/${id}`, { interview })
+            .then(() => {
             setState({...state, appointments, days})
-      })
-        .catch((error) => console.log(error));
+        })
       }
 
       function cancelInterview(id) {
         let appointmentObj = {...state.appointments[id], interview: null};
         const appointments = {...state.appointments, [id]: appointmentObj}
         const days = updateSpots(id, true);
-        return axios.delete(`/api/appointments/${id}`)
-          .then(() => {
+          return axios.delete(`/api/appointments/${id}`)
+            .then(() => {
             setState({...state, appointments, days})
           })
-          .catch((err) => console.log(err));
-      }
+       }
 
         useEffect(() => {
           Promise.all([

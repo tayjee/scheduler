@@ -29,8 +29,7 @@ export default function Appointment(props) {
       student: name,
       interviewer,
     };
-
-    if(interviewer !== null && name.length > 1 ) {
+    if(interviewer !== null && name.length > 1 && name.trim().length !== 0) {
     transition(SAVE);
     props.bookInterview(props.id, interview)
     .then(() => transition(SHOW))
@@ -38,12 +37,11 @@ export default function Appointment(props) {
     }
   }
 
-  function cancel(event) {
+  function cancel() {
     transition(DELETE, true);
     props.cancelInterview(props.id)
     .then(() => transition(EMPTY))
     .catch(err => transition(ERROR_DELETE, true));
-
   }
 
   return (
