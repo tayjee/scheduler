@@ -28,7 +28,7 @@ const [interviewer, setInterviewer] = useState(props.interviewer || null);
         type="text"
         value={student}
         onChange={(e) => setStudent(e.target.value)}
-        placeholder="Enter Student Name"
+        placeholder="Enter Student Name (Minimum 2 Chars)"
         /*
           This must be a controlled component
           your code goes here
