@@ -4,12 +4,12 @@ Scheduler is a React app that lets the user book and cancel interviews and has t
 
 ## Dependencies
 
-axios
-classnames
-normalize.css
-react
-react-dom
-react-scripts
+*axios
+*classnames
+*normalize.css
+*react
+*react-dom
+*react-scripts
 
 ## Setup
 
