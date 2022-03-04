@@ -51,7 +51,6 @@ const [interviewer, setInterviewer] = useState(props.interviewer || null);
     </form>
     <section className="appointment__validation">{error}</section>
     <InterviewerList 
-      /* your code goes here */
       interviewers={props.interviewers}
       onChange={setInterviewer}
       value={interviewer}

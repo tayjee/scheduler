@@ -24,6 +24,7 @@ export default function Appointment(props) {
     props.interview ? SHOW : EMPTY
   );
 
+  //Save function that executes when the form is submitted or edited.
   function save(name, interviewer) {
     const interview = {
       student: name,
@@ -32,14 +33,16 @@ export default function Appointment(props) {
       transition(SAVE);
       props.bookInterview(props.id, interview)
         .then(() => transition(SHOW))
+        //Will render an error message to pop up with appropiate text
         .catch(err => transition(ERROR_SAVE, true));
     }
   
-
+  //Delete function that executes when cancellation of appointment is confirmed by the user.
   function cancel() {
     transition(DELETE, true);
     props.cancelInterview(props.id)
       .then(() => transition(EMPTY))
+      //Will render an error message to pop up with appropiate text
       .catch(err => transition(ERROR_DELETE, true));
   }
 
