@@ -2,6 +2,10 @@
 
 Scheduler is a React app that lets the user book and cancel interviews and has the data persist through the usage of an API.
 
+## Example
+!["Interview Scheduler"](https://github.com/tayjee/scheduler/blob/master/docs/InterviewScheduler.png?raw=true)
+!["Edit Appointment"](https://github.com/tayjee/scheduler/blob/master/docs/InterviewSchedulerEdit.png?raw=true)
+
 ## Dependencies
 
 *axios
