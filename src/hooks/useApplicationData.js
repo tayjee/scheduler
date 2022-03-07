@@ -23,8 +23,8 @@ const useApplicationData = () => {
 
     if (cancelInterview) {
       numberOfSpots++;
-    } else {
-      numberOfSpots--;
+      } else {
+        numberOfSpots--;
     }
 
     const spotCount = [ ...state.days ];
@@ -45,11 +45,11 @@ const useApplicationData = () => {
         ...state.appointments,
         [id]: appointment
         };
-        
+
       return axios
         .put(`/api/appointments/${id}`, { interview })
         .then(() => {
-            setState({...state, appointments, days})
+          setState({...state, appointments, days})
       })
     }
 
@@ -60,7 +60,7 @@ const useApplicationData = () => {
         
           return axios.delete(`/api/appointments/${id}`)
             .then(() => {
-            setState({...state, appointments, days})
+              setState({...state, appointments, days})
           })
        }
 
